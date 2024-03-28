@@ -1,5 +1,5 @@
 0: pre-req
-https://github.com/harryziyuhe/gubernatorial_election_option_pricing/tree/main/code
+https://github.com/harryziyuhe/gubernatorial_election_option_pricing/tree/main/code<br>
 Codes accompanying a research paper documenting the effects of political uncertainty in the financial market using options data.
 
 1: Easy
@@ -27,6 +27,7 @@ Most of the codes in the vigenettes are written with few repetitions, but there 
 First, in Which-factors.Rmd, there are a few lines of codes where a new data frame is created with "merge()" and filtered to keep rows with no missing data.
 
 The following function can help organize the codes:
+```
 MergeAndSelect <- function(data.list, select.vars = NULL) {
   # 'data.list' is the list of data frames for merging
   # 'select.vars' is the list of variables to keep
@@ -42,11 +43,13 @@ MergeAndSelect <- function(data.list, select.vars = NULL) {
   
   return(cleanedData)
 }
+```
 
 When calling the function, pass the data frames as a list() object to data.list and the selected variables as a c() object. If all variables as kept, the select.vars argument can be left blank.
 
 Second, in Value--Devil-in-HMLs_Details.Rmd, the codes to run the two time-series regressions are quite repetitive. While it may not be as useful to create a function as the codes are repeated only twice, if similar regressions models are built in the future, one may consider a function such as:
 
+```
 TSRegression <- function(data, dep.vars, exp.vars, date.var) {
   # 'data' is the dataset containing all variables
   # 'dep.vars' is a vector of dependent variable names
@@ -70,7 +73,10 @@ TSRegression <- function(data, dep.vars, exp.vars, date.var) {
   
   return(regressions)
 }
+```
 
 In the HML^{a,c} time-series regressions case, the function can be called as
+```
 dep.vars.ac = regrds[, 1]
 ts.regs.hml = TSRegression(factors.data, dep.vars.ac, hml.regrs, 'DATE')
+```

@@ -1,14 +1,14 @@
-0: pre-req
-https://github.com/harryziyuhe/gubernatorial_election_option_pricing/tree/main/code<br>
+#### 0: pre-req
+https://github.com/harryziyuhe/gubernatorial_election_option_pricing/tree/main/code \
 Codes accompanying a research paper documenting the effects of political uncertainty in the financial market using options data.
 
-1: Easy
+#### 1: Easy
 Installation went through without error
 
-2: Medium
+#### 2: Medium
 Identified bugs in Which-Factors.Rmd, Time-series-momentum.Rmd. Identified data issue with Improving-time-sries-momentum.Rmd
 
-3: Hard - Commodities-long-run.Rmd
+#### 3: Hard - Commodities-long-run.Rmd
 The descriptive statistics shows that for all periods under analysis, the returns on the equal-weighted portfolio is positive, and the interest rate adjusted carry returns account for more than the excess sport returns. The long-short backwardation-based portfolio, on the other hand, shows generally positive return but has an overall negative mean return between 1877 and 1945. The volatility of the long-short portfolio is also larger, with the volatiltiy of interest rate adjusted carry component significantly higher than that of a equal-weighted portfolio.
 
 Delving into the regression analyses, the positive and statistically significant interpcepts point to consistently positive alphas for both portfolio. For the equal-weighted portfolio, the business cycle and inflation state are significantly correlated with the overall returns. Specifically, recession is negatively correlated with return whereas inflation is positive correlated with returns. Moving to a longer (one year and five years) time horizon, these correlations lose statistical significance. Overall, the relationships between business cycle, inflation state, and backwardation state and returns of the long-short portfolio are weak, both over the short and long term time horizon.
@@ -27,7 +27,7 @@ Most of the codes in the vigenettes are written with few repetitions, but there 
 First, in Which-factors.Rmd, there are a few lines of codes where a new data frame is created with "merge()" and filtered to keep rows with no missing data.
 
 The following function can help organize the codes:
-```
+```R
 MergeAndSelect <- function(data.list, select.vars = NULL) {
   # 'data.list' is the list of data frames for merging
   # 'select.vars' is the list of variables to keep
@@ -49,7 +49,7 @@ When calling the function, pass the data frames as a list() object to data.list 
 
 Second, in Value--Devil-in-HMLs_Details.Rmd, the codes to run the two time-series regressions are quite repetitive. While it may not be as useful to create a function as the codes are repeated only twice, if similar regressions models are built in the future, one may consider a function such as:
 
-```
+```R
 TSRegression <- function(data, dep.vars, exp.vars, date.var) {
   # 'data' is the dataset containing all variables
   # 'dep.vars' is a vector of dependent variable names
@@ -76,7 +76,7 @@ TSRegression <- function(data, dep.vars, exp.vars, date.var) {
 ```
 
 In the HML^{a,c} time-series regressions case, the function can be called as
-```
+```R
 dep.vars.ac = regrds[, 1]
 ts.regs.hml = TSRegression(factors.data, dep.vars.ac, hml.regrs, 'DATE')
 ```

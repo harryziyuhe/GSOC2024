@@ -1,10 +1,10 @@
 ## Project info
 
-Project title: 
+Project title: Expected Returns: Factor Creation and Feature Engineering
 
-Project short title (30 characters): 
+Project short title: Expected Returns
 
-URL of project idea page: 
+URL of project idea page: https://github.com/rstats-gsoc/gsoc2024/wiki/ExpectedReturns-Factor-Creation-and-Feature-Engineering
 
 ## Bio of Contributor 
 
